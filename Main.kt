@@ -2,28 +2,18 @@ package encryptdecrypt
 
 fun main() {
 
-    val alphabet = "abcdefghijklmnopqrstuvwxyz"
+    val function = readln() //dec or enc
     val phrase = readln()
-    val key = readln().toByte()
+    val key = readln().toInt()
 
     for (ch in phrase) {
 
-        if (ch.isWhitespace()) {
-            print(" ")
+        if (function == "enc") {
+            print(ch.toChar() + key)
+        } else
+        {
+            print(ch.toChar() - key)
         }
-        else {
-
-            val index = alphabet.indexOf(ch)
-            var shift = index + key
-            if (shift > alphabet.length - 1) {
-                shift = shift - alphabet.length
-                print(alphabet[shift])
-            }
-            else {
-                print(alphabet[shift])
-            }
-        }
-
     }
 
 }
